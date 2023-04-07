@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Timer.css';
 
 export default function Timer({ min = 0, sec = 0 }) {
   const time = 60 * min + sec;
@@ -19,16 +20,16 @@ export default function Timer({ min = 0, sec = 0 }) {
 
   const toogleStart = () => setFlag(!flag);
 
-  const classes = setFlag ? 'icon icon-pause' : 'icon icon-play';
-
   return (
-    <div>
-      <button className={classes} onClick={toogleStart}>
-        start
-      </button>
-      <p>{minutes}</p>
-      <p>:</p>
-      <p>{seconds}</p>
-    </div>
+    <span className="description">
+      <p>
+        {minutes}:{seconds}
+      </p>
+      {flag ? (
+        <button className={'icon icon-pause'} onClick={toogleStart}></button>
+      ) : (
+        <button className={'icon icon-play'} onClick={toogleStart}></button>
+      )}
+    </span>
   );
 }

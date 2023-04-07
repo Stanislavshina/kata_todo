@@ -4,13 +4,14 @@ import './NewTaskForm.css';
 
 const NewTaskForm = ({ createTask }) => {
   const [value, setValue] = useState('');
-  const [min, setMin] = useState();
-  const [sec, setSec] = useState();
+  const [min, setMin] = useState('');
+  const [sec, setSec] = useState('');
   const submitHendler = (e) => {
     e.preventDefault();
     createTask(value, min, sec);
     setValue('');
-    console.log(11);
+    setMin('');
+    setSec('');
   };
   return (
     <form className="new-todo-form" onSubmit={(e) => submitHendler(e)}>
@@ -24,17 +25,18 @@ const NewTaskForm = ({ createTask }) => {
       <input
         className="new-todo-form__timer"
         placeholder="Min"
-        type="number"
         value={min}
         onChange={(e) => setMin(e.target.value)}
+        type="number"
       />
       <input
         className="new-todo-form__timer"
         placeholder="Sec"
-        type="number"
         value={sec}
         onChange={(e) => setSec(e.target.value)}
+        type="number"
       />
+      <button type="submit" className="button__form" />
     </form>
   );
 };
