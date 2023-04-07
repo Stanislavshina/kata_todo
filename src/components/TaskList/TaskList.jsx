@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './TaskList.css';
 import Task from '../Task/Task';
+import './TaskList.css';
 
 const TaskList = ({ tasks, onDelete, onCompleted }) => {
   return (
@@ -15,6 +15,9 @@ const TaskList = ({ tasks, onDelete, onCompleted }) => {
           description={task.body}
           key={task.id}
           created={task.id}
+          min={task.min}
+          sec={task.sec}
+          id={task.id}
         />
       ))}
     </ul>
