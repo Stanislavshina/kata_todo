@@ -14,12 +14,14 @@ function App() {
   ]);
   const [active, setActive] = useState('All');
 
-  const createTask = (value) => {
+  const createTask = (value, min, sec) => {
     const newTask = {
       id: Date.now(),
       body: value,
       editing: false,
       completed: false,
+      min: min,
+      sec: sec,
     };
     setTasks([...tasks, newTask]);
   };
